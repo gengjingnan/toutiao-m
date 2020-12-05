@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" hidden />
+    <button>按钮</button>
+    <img />
+    <script>
+      // var input = document.querySelector('input')
+      // var btn = document.querySelector('button')
+      // var img = document.querySelector('img')
+      // btn.onclick = function() {
+      //   //   点击按钮
+      //   input.click()
+      // }
+      // input.onchange = function() {
+      //   //   input.files[0]当前选中的文件
+      //   //  window.URL.createObjectURL() 将当前选中的文件转换为blob地址追加给img的src属性
+      //   img.src = window.URL.createObjectURL(input.files[0])
+      // }
+      function detectType(type) {
+        return function(obj) {
+          return {}.toString.call(obj) === `[object ${type}]`
+        }
+      }
+      const isArray = detectType('Array')
+      //const isString = detecType('String')
+
+      console.log(isArray([1, 2, 3])) // true
+      console.log(isArray('[1,2,3]')) // false
+    </script>
+  </body>
+</html>
